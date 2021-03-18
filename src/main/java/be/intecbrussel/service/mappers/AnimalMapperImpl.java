@@ -1,4 +1,4 @@
-package be.intecbrussel.data.mappers;
+package be.intecbrussel.service.mappers;
 
 import be.intecbrussel.data.dao.AnimalDAO;
 import be.intecbrussel.data.dao.AnimalDAOImpl;
@@ -22,12 +22,24 @@ public class AnimalMapperImpl implements AnimalMapper{
     }
 
     @Override
-    public Animal updateAnimal() {
-        return null;
+    public Animal updateAnimal(Animal animal) {
+        return dao.updateAnimal(animal);
     }
 
     @Override
-    public boolean decomposeAnimal() {
-        return false;
+    public Animal renameAnimal(long id, String newName) {
+        Animal animalToUpdate = dao.readAnimal(id);
+        animalToUpdate.setName(newName);
+        return dao.updateAnimal(animalToUpdate);
+    }
+
+    @Override
+    public boolean decomposeAnimal(long id) {
+        return dao.decomposeAnimal(id);
+    }
+
+    @Override
+    public boolean decomposeAnimal(Animal animal) {
+        return dao.decomposeAnimal(animal.getId());
     }
 }

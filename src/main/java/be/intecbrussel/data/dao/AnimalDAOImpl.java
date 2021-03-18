@@ -31,12 +31,99 @@ public class AnimalDAOImpl implements AnimalDAO{
     }
 
     @Override
-    public Animal updateAnimal() {
-        return null;
+    public Animal updateAnimal(Animal animal) {
+
+        if (animal == null){
+            return null;
+        }
+
+        EntityManager em = EntityManagerProvider.getEM();
+
+        em.getTransaction().begin();
+        animal = em.merge(animal);
+        em.getTransaction().commit();
+
+        em.close();
+        return animal;
+
+
+//        EntityManager em = EntityManagerProvider.getEM();
+//        em.getTransaction().begin();
+//
+//        Animal current = em.find(Animal.class, id);
+//        if(current == null){
+//            em.getTransaction().rollback();
+//            em.close();
+//            return null;
+//        }
+//
+//        current.setAge(animal.getAge());
+//        current.setName(animal.getName());
+//        current.setWeight(animal.getWeight());
+//
+//        em.getTransaction().commit();
+//        em.close();
+//        return animal;
     }
 
     @Override
-    public boolean decomposeAnimal() {
-        return false;
+    public boolean decomposeAnimal(long id) {
+        EntityManager entityManager = EntityManagerProvider.getEM();
+        boolean isDeleted;
+
+        entityManager.getTransaction().begin();
+        Animal animal = entityManager.find(Animal.class, id);
+
+        if (animal == null) {
+            entityManager.getTransaction().rollback();
+            entityManager.close();
+
+            isDeleted = false;
+            return isDeleted;
+        }
+
+        entityManager.remove(animal);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+
+        isDeleted = true;
+        return isDeleted;
+
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

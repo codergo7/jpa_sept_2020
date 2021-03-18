@@ -7,7 +7,7 @@ public interface AnimalDAO {
     // CRUD
     Animal createAnimal(Animal animal);
     Animal readAnimal(long id);
-    Animal updateAnimal();
-    boolean decomposeAnimal();
+    Animal updateAnimal(Animal animal);
+    boolean decomposeAnimal(long id);
 
 }

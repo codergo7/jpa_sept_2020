@@ -22,6 +22,10 @@ public class Animal {
         this.age = age;
     }
 
+    public long getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
