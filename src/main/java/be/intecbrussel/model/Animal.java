@@ -1,18 +1,31 @@
 package be.intecbrussel.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Arrays;
 
-@Entity
+@Entity(name = "Students")
 public class Animal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "animal_id")
     private long id;
+
+    @Column(name = "animal_name")
     private String name;
+
+    @Column(name = "animal_weight")
     private double weight;
+
+    @Column(name = "animal_age")
     private double age;
+
+    @OneToOne (cascade = CascadeType.ALL)
+    private AnimalTag animalTag;
+
+    @ManyToMany (cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OrderColumn
+    @JoinTable(name ="animal_food", joinColumns = @JoinColumn(name = "animal_id"), inverseJoinColumns = @JoinColumn(name= "food_id"))
+    private Food[] diet;
 
     public Animal(){}
 
@@ -24,6 +37,10 @@ public class Animal {
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -50,6 +67,22 @@ public class Animal {
         this.age = age;
     }
 
+    public AnimalTag getAnimalTag() {
+        return animalTag;
+    }
+
+    public void setAnimalTag(AnimalTag animalTag) {
+        this.animalTag = animalTag;
+    }
+
+    public Food[] getDiet() {
+        return diet;
+    }
+
+    public void setDiet(Food[] diet) {
+        this.diet = diet;
+    }
+
     @Override
     public String toString() {
         return "Animal{" +
@@ -57,6 +90,8 @@ public class Animal {
                 ", name='" + name + '\'' +
                 ", weight=" + weight +
                 ", age=" + age +
+                ", animalTag=" + animalTag +
+                ", diet=" + Arrays.toString(diet) +
                 '}';
     }
 }

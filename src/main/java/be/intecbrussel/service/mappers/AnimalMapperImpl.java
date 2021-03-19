@@ -17,6 +17,11 @@ public class AnimalMapperImpl implements AnimalMapper{
     }
 
     @Override
+    public Animal createAnimal(Animal animal) {
+        return dao.createAnimal(animal);
+    }
+
+    @Override
     public Animal readAnimal(long id) {
         return dao.readAnimal(id);
     }

@@ -4,6 +4,7 @@ import be.intecbrussel.model.Animal;
 
 public interface AnimalMapper {
     Animal createAnimal(String name, double weight, double age);
+    Animal createAnimal(Animal animal);
 
     Animal readAnimal(long id);
 

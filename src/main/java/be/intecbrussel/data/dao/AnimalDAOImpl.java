@@ -11,7 +11,7 @@ public class AnimalDAOImpl implements AnimalDAO{
         EntityManager em = EntityManagerProvider.getEM();
 
         em.getTransaction().begin();
-        em.persist(animal);
+        animal = em.merge(animal);
         em.getTransaction().commit();
 
         em.close();
