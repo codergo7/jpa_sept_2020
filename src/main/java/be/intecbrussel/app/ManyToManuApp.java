@@ -9,7 +9,7 @@ import be.intecbrussel.service.mappers.AnimalMapperImpl;
 public class ManyToManuApp {
     public static void main(String[] args) {
         AnimalMapper am = new AnimalMapperImpl();
-        FoodMapper fm = new FoodMapperImpl();
+//        FoodMapper fm = new FoodMapperImpl();
 
         Animal animal = new Animal("Lion", 20, 20);
         AnimalTag at = new AnimalTag("Jean-Chasseur", "911");
@@ -34,8 +34,8 @@ public class ManyToManuApp {
 
 
         Animal animal3 = new Animal("Smilidon", 20, 20);
-        Food bambi = fm.readFood(1);
-        Food nemo = fm.readFood(3);
+//        Food bambi = fm.readFood(1);
+//        Food nemo = fm.readFood(3);
         animal3.setDiet(new Food[]{bambi, nemo});
         am.createAnimal(animal3);
 
