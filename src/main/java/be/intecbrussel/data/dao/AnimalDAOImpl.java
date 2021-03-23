@@ -6,6 +6,9 @@ import be.intecbrussel.model.Animal;
 import javax.persistence.EntityManager;
 
 public class AnimalDAOImpl implements AnimalDAO{
+
+    private static EntityManager entityManager = EntityManagerProvider.getEM();
+
     @Override
     public Animal createAnimal(Animal animal) {
         EntityManager em = EntityManagerProvider.getEM();
@@ -20,13 +23,13 @@ public class AnimalDAOImpl implements AnimalDAO{
 
     @Override
     public Animal readAnimal(long id) {
-        EntityManager em = EntityManagerProvider.getEM();
+//        EntityManager entityManager = EntityManagerProvider.getEM();
 
-        em.getTransaction().begin();
-        Animal animal = em.find(Animal.class, id);
-        em.getTransaction().commit();
+        entityManager.getTransaction().begin();
+        Animal animal = entityManager.find(Animal.class, id);
+        entityManager.getTransaction().commit();
 
-        em.close();
+//        entityManager.close();
         return animal;
     }
 

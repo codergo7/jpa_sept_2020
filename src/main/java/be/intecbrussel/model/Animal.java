@@ -27,6 +27,17 @@ public class Animal {
     @JoinTable(name ="animal_food", joinColumns = @JoinColumn(name = "animal_id"), inverseJoinColumns = @JoinColumn(name= "food_id"))
     private Food[] diet;
 
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private FeedingQueue feedingQueue = new FeedingQueue();
+
+    public FeedingQueue getFeedingQueue() {
+        return feedingQueue;
+    }
+
+    public void setFeedingQueue(FeedingQueue feedingQueue) {
+        this.feedingQueue = feedingQueue;
+    }
+
     public Animal(){}
 
     public Animal(String name, double weight, double age) {
@@ -92,6 +103,11 @@ public class Animal {
                 ", age=" + age +
                 ", animalTag=" + animalTag +
                 ", diet=" + Arrays.toString(diet) +
+                ", feedingQueue=" + feedingQueue +
                 '}';
+    }
+
+    public BrandFood goEat() {
+        return feedingQueue.getFood();
     }
 }
