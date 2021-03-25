@@ -2,7 +2,10 @@ package be.intecbrussel.service.mappers;
 
 import be.intecbrussel.model.Animal;
 
+import java.util.List;
+
 public interface AnimalMapper {
+    // Built-in methods
     Animal createAnimal(String name, double weight, double age);
     Animal createAnimal(Animal animal);
 
@@ -13,4 +16,10 @@ public interface AnimalMapper {
 
     boolean decomposeAnimal(long id);
     boolean decomposeAnimal(Animal animal);
+
+    // Querry Methods
+
+    double getAvgAge();
+    List<Animal> getAllAnimalsAboveWeight(double weight);
+    double getAvgWeightFromAnimalsAboveAge(double age);
 }

@@ -11,10 +11,10 @@ public class ManyToManuApp {
         AnimalMapper am = new AnimalMapperImpl();
 //        FoodMapper fm = new FoodMapperImpl();
 
-        Animal animal = new Animal("Lion", 20, 20);
+        Animal animal = new Animal("Lion", 20, 15);
         AnimalTag at = new AnimalTag("Jean-Chasseur", "911");
 
-        Animal animal2 = new Animal("Panther", 20, 20);
+        Animal animal2 = new Animal("Panther", 20, 99);
         AnimalTag at2 = new AnimalTag("Black Panther", "11111111");
 
         Food bambi = new Food();
@@ -33,7 +33,7 @@ public class ManyToManuApp {
         am.createAnimal(animal2);
 
 
-        Animal animal3 = new Animal("Smilidon", 20, 20);
+        Animal animal3 = new Animal("Smilidon", 20, 45);
 //        Food bambi = fm.readFood(1);
 //        Food nemo = fm.readFood(3);
         animal3.setDiet(new Food[]{bambi, nemo});

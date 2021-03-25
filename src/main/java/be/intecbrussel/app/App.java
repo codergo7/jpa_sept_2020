@@ -26,7 +26,7 @@ public class App {
 
 //        am.renameAnimal(1, "Jean-Exception");
 
-        boolean isDeleted = am.decomposeAnimal(4);
-        System.out.println(isDeleted);
+//        boolean isDeleted = am.decomposeAnimal(4);
+//        System.out.println(isDeleted);
     }
 }

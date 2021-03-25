@@ -4,6 +4,10 @@ import javax.persistence.*;
 import java.util.Arrays;
 
 @Entity(name = "Students")
+@NamedQueries({
+        @NamedQuery(name= "Animal.getAvgWeightFromAnimalsAboveAge",
+                query="SELECT AVG(s.weight) FROM Students s WHERE s.age > :age")
+})
 public class Animal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -12,7 +12,7 @@ public class FeedingQueue {
     private long id;
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<BrandFood> brandFood = new ArrayList<>();
 
     public void setName(BrandFood brandFood) {
