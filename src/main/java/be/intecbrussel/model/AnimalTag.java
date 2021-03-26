@@ -1,11 +1,18 @@
 package be.intecbrussel.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class AnimalTag {
 
     @Id
@@ -14,28 +21,8 @@ public class AnimalTag {
     private String name;
     private String phoneNr;
 
-
-    public AnimalTag() {
-    }
-
     public AnimalTag(String name, String phoneNr) {
         this.name = name;
-        this.phoneNr = phoneNr;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPhoneNr() {
-        return phoneNr;
-    }
-
-    public void setPhoneNr(String phoneNr) {
         this.phoneNr = phoneNr;
     }
 

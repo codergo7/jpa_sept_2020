@@ -1,14 +1,14 @@
-package be.intecbrussel.service.mappers;
+package be.intecbrussel.service;
 
 import be.intecbrussel.data.dao.AnimalDAO;
-import be.intecbrussel.data.dao.AnimalDAOImpl;
+import be.intecbrussel.data.dao.impl.AnimalDAOImpl;
 import be.intecbrussel.data.dao.AnimalQueryDAO;
-import be.intecbrussel.data.dao.AnimalQueryDAOImpl;
+import be.intecbrussel.data.dao.impl.AnimalQueryDAOImpl;
 import be.intecbrussel.model.Animal;
 
 import java.util.List;
 
-public class AnimalMapperImpl implements AnimalMapper{
+public class AnimalServiceImpl implements AnimalService {
     private AnimalDAO builtInDao = new AnimalDAOImpl();
     private AnimalQueryDAO queryDao = new AnimalQueryDAOImpl();
 

@@ -3,12 +3,12 @@ package be.intecbrussel.app;
 import be.intecbrussel.model.Animal;
 import be.intecbrussel.model.BrandFood;
 import be.intecbrussel.model.FeedingQueue;
-import be.intecbrussel.service.mappers.AnimalMapper;
-import be.intecbrussel.service.mappers.AnimalMapperImpl;
+import be.intecbrussel.service.AnimalService;
+import be.intecbrussel.service.AnimalServiceImpl;
 
 public class ManyApp {
     public static void main(String[] args) {
-        AnimalMapper animalMapper = new AnimalMapperImpl();
+        AnimalService animalService = new AnimalServiceImpl();
 
         Animal animal = new Animal("Vito", 3, 40);
         Animal animal2 = new Animal("Nero", 3, 30);
@@ -34,14 +34,14 @@ public class ManyApp {
         queueLU.addFood(prinsenkoeken);
 
         animal.setFeedingQueue(queueLU);
-        animal = animalMapper.createAnimal(animal);
+        animal = animalService.createAnimal(animal);
 
         queueLU = animal.getFeedingQueue();
 
         animal2.setFeedingQueue(queueLU);
-        animal2 = animalMapper.createAnimal(animal2);
+        animal2 = animalService.createAnimal(animal2);
         animal3.setFeedingQueue(queueLU);
-        animal3 = animalMapper.createAnimal(animal3);
+        animal3 = animalService.createAnimal(animal3);
 
 //        System.out.println(animal);
 //        System.out.println(animal2);
@@ -66,9 +66,9 @@ public class ManyApp {
 //        animalMapper.updateAnimal(animalToUpdate);
 
 
-         animalMapper.decomposeAnimal(2L);
+         animalService.decomposeAnimal(2L);
 
-         Animal an = animalMapper.readAnimal(1);
+         Animal an = animalService.readAnimal(1);
          System.out.println(an);
     }
 }

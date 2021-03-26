@@ -1,9 +1,7 @@
 package be.intecbrussel.app;
 
-import be.intecbrussel.model.Animal;
-import be.intecbrussel.model.AnimalTag;
-import be.intecbrussel.service.mappers.AnimalMapper;
-import be.intecbrussel.service.mappers.AnimalMapperImpl;
+import be.intecbrussel.service.AnimalService;
+import be.intecbrussel.service.AnimalServiceImpl;
 
 public class App {
     public static void main(String[] args) {
@@ -11,7 +9,7 @@ public class App {
 //        animal.setAnimalTag(new AnimalTag("Django", "0413371337"));
 //        System.out.println(animal);
 
-        AnimalMapper am = new AnimalMapperImpl();
+        AnimalService am = new AnimalServiceImpl();
 //        am.createAnimal(animal);
 
 //        Animal crud = am.createAnimal("Jean-Teste-deux", 20, 50);

@@ -1,9 +1,16 @@
 package be.intecbrussel.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.Arrays;
 
 @Entity(name = "Students")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @NamedQueries({
         @NamedQuery(name= "Animal.getAvgWeightFromAnimalsAboveAge",
                 query="SELECT AVG(s.weight) FROM Students s WHERE s.age > :age")
@@ -42,60 +49,10 @@ public class Animal {
         this.feedingQueue = feedingQueue;
     }
 
-    public Animal(){}
-
     public Animal(String name, double weight, double age) {
         this.name = name;
         this.weight = weight;
         this.age = age;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
-    public double getAge() {
-        return age;
-    }
-
-    public void setAge(double age) {
-        this.age = age;
-    }
-
-    public AnimalTag getAnimalTag() {
-        return animalTag;
-    }
-
-    public void setAnimalTag(AnimalTag animalTag) {
-        this.animalTag = animalTag;
-    }
-
-    public Food[] getDiet() {
-        return diet;
-    }
-
-    public void setDiet(Food[] diet) {
-        this.diet = diet;
     }
 
     @Override
@@ -111,7 +68,4 @@ public class Animal {
                 '}';
     }
 
-    public BrandFood goEat() {
-        return feedingQueue.getFood();
-    }
 }

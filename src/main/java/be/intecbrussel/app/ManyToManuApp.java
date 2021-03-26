@@ -3,12 +3,12 @@ package be.intecbrussel.app;
 import be.intecbrussel.model.Animal;
 import be.intecbrussel.model.AnimalTag;
 import be.intecbrussel.model.Food;
-import be.intecbrussel.service.mappers.AnimalMapper;
-import be.intecbrussel.service.mappers.AnimalMapperImpl;
+import be.intecbrussel.service.AnimalService;
+import be.intecbrussel.service.AnimalServiceImpl;
 
 public class ManyToManuApp {
     public static void main(String[] args) {
-        AnimalMapper am = new AnimalMapperImpl();
+        AnimalService am = new AnimalServiceImpl();
 //        FoodMapper fm = new FoodMapperImpl();
 
         Animal animal = new Animal("Lion", 20, 15);

@@ -2,27 +2,25 @@ package be.intecbrussel.app;
 
 import be.intecbrussel.model.Animal;
 import be.intecbrussel.model.AnimalTag;
-import be.intecbrussel.service.mappers.AnimalMapper;
-import be.intecbrussel.service.mappers.AnimalMapperImpl;
-
-import java.util.List;
+import be.intecbrussel.service.AnimalService;
+import be.intecbrussel.service.AnimalServiceImpl;
 
 public class QuerryApp {
     public static void main(String[] args) {
-        AnimalMapper animalMapper = new AnimalMapperImpl();
-        addAnimalsToDB(animalMapper);
-        useQuerries(animalMapper);
+        AnimalService animalService = new AnimalServiceImpl();
+        addAnimalsToDB(animalService);
+        useQuerries(animalService);
     }
 
-    private static void useQuerries(AnimalMapper animalMapper) {
+    private static void useQuerries(AnimalService animalService) {
 //        System.out.println(animalMapper.getAvgAge());
 //        List<Animal> animalList = animalMapper.getAllAnimalsAboveWeight(50);
 //        animalList.forEach(System.out::println);
 
-        System.out.println(animalMapper.getAvgWeightFromAnimalsAboveAge(15));
+        System.out.println(animalService.getAvgWeightFromAnimalsAboveAge(15));
     }
 
-    private static void addAnimalsToDB(AnimalMapper animalMapper){
+    private static void addAnimalsToDB(AnimalService animalService){
         Animal animal = new Animal("Lion", 63, 15);
         AnimalTag at = new AnimalTag("Jean-Chasseur", "911");
         animal.setAnimalTag(at);
@@ -36,8 +34,8 @@ public class QuerryApp {
         animal3.setAnimalTag(at3);
 
 
-        animalMapper.createAnimal(animal);
-        animalMapper.createAnimal(animal2);
-        animalMapper.createAnimal(animal3);
+        animalService.createAnimal(animal);
+        animalService.createAnimal(animal2);
+        animalService.createAnimal(animal3);
     }
 }

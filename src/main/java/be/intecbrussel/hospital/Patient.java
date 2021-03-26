@@ -1,10 +1,17 @@
 package be.intecbrussel.hospital;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,29 +19,10 @@ public class Patient {
 
     private String patientName;
 
-    public Patient() {
-    }
-
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Disease> diseases = new ArrayList<>();
 
     public Patient(String patientName) {
-        this.patientName = patientName;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getPatientName() {
-        return patientName;
-    }
-
-    public void setPatientName(String patientName) {
         this.patientName = patientName;
     }
 

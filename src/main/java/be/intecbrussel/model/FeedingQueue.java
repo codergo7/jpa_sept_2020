@@ -1,11 +1,18 @@
 package be.intecbrussel.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class FeedingQueue {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,9 +22,6 @@ public class FeedingQueue {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<BrandFood> brandFood = new ArrayList<>();
 
-    public void setName(BrandFood brandFood) {
-        this.name = brandFood.getBrand();
-    }
 
     public void addFood(BrandFood food) {
         brandFood.add(food);
@@ -37,9 +41,5 @@ public class FeedingQueue {
                 ", name='" + name + '\'' +
                 ", brandFood=" + brandFood +
                 '}';
-    }
-
-    public String getName() {
-        return name;
     }
 }

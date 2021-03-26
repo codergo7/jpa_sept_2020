@@ -1,10 +1,10 @@
-package be.intecbrussel.service.mappers;
+package be.intecbrussel.service;
 
 import be.intecbrussel.model.Animal;
 
 import java.util.List;
 
-public interface AnimalMapper {
+public interface AnimalService {
     // Built-in methods
     Animal createAnimal(String name, double weight, double age);
     Animal createAnimal(Animal animal);

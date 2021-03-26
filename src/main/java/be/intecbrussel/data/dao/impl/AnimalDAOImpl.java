@@ -1,11 +1,12 @@
-package be.intecbrussel.data.dao;
+package be.intecbrussel.data.dao.impl;
 
 import be.intecbrussel.data.EntityManagerProvider;
+import be.intecbrussel.data.dao.AnimalDAO;
 import be.intecbrussel.model.Animal;
 
 import javax.persistence.EntityManager;
 
-public class AnimalDAOImpl implements AnimalDAO{
+public class AnimalDAOImpl implements AnimalDAO {
 
     private static EntityManager entityManager = EntityManagerProvider.getEM();
 

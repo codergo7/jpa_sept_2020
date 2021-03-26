@@ -1,13 +1,14 @@
-package be.intecbrussel.data.dao;
+package be.intecbrussel.data.dao.impl;
 
 import be.intecbrussel.data.EntityManagerProvider;
+import be.intecbrussel.data.dao.AnimalQueryDAO;
 import be.intecbrussel.model.Animal;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class AnimalQueryDAOImpl implements AnimalQueryDAO{
+public class AnimalQueryDAOImpl implements AnimalQueryDAO {
     @Override
     public double getAvgAge() {
         String query = "SELECT AVG(s.age) FROM Students s";
